@@ -19,7 +19,7 @@ function UpdateEvent() {
     useEffect(() => {
         const eventID = localStorage.getItem("eventID");
 
-        Axios.get("http://3.86.59.163:4000/eventRoute/check-event/" + eventID)
+        Axios.get("http://54.197.197.229:4000/eventRoute/check-event/" + eventID)
             .then(response => {
                 setFormData({
                     nameValue: response.data.name,

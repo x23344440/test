@@ -17,7 +17,7 @@ export default function Login() {
             localStorage.setItem("user", name);
             alert("Welcome admin");
         } else {
-            Axios.get("http://3.86.59.163:4000/eventRoute/check-user/" + name)
+            Axios.get("http://54.197.197.229:4000/eventRoute/check-user/" + name)
                 .then((res) => {
                     if (res.status === 200) {
                         if (res.data != null) {

@@ -8,7 +8,7 @@ function UserList()
 {
     const [arr,setArr] = useState([]);
     useEffect(()=>{
-        Axios.get("http://3.86.59.163:4000/eventRoute/user-list")
+        Axios.get("http://54.197.197.229:4000/eventRoute/user-list")
         .then((res)=>{
             if(res.status === 200)
                 setArr(res.data);

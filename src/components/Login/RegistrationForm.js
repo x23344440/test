@@ -86,7 +86,7 @@ const RegistrationForm = (props) => {
 
     // If no validation errors, you can proceed with form submission logic
     if (props.action === "create") {
-      Axios.post('http://3.86.59.163:4000/eventRoute/create-user', formData)
+      Axios.post('http://54.197.197.229:4000/eventRoute/create-user', formData)
         .then((res) => {
           if (res.status === 200) {
             alert("User created successfully");
@@ -118,7 +118,7 @@ const RegistrationForm = (props) => {
       };
       userData.bookedEvents = props.bookedEventsValue;
 
-      Axios.put(`http://3.86.59.163:4000/eventRoute/update-user/${props.id}`, userData)
+      Axios.put(`http://54.197.197.229:4000/eventRoute/update-user/${props.id}`, userData)
         .then(() => alert('User updated successfully'))
         .catch((error) => {
           console.error('Error updating user:', error);
@@ -126,14 +126,14 @@ const RegistrationForm = (props) => {
         });
 
       // Update event details
-      Axios.get("http://3.86.59.163:4000/eventRoute/event-list")
+      Axios.get("http://54.197.197.229:4000/eventRoute/event-list")
         .then((eventResponse) => {
           if (eventResponse.status === 200) {
             const collectedEvents = eventResponse.data;
             const eventUpdates = collectedEvents.map(event => {
               event.registeredUsers = event.registeredUsers.filter((user) => user.username !== userData.username);
               event.registeredUsers = [...event.registeredUsers, { username: userData.username, fullName: userData.fullName, email: userData.email, phone: userData.phone }];
-              return Axios.put(`http://3.86.59.163:4000/eventRoute/update-event/${event._id}`, event);
+              return Axios.put(`http://54.197.197.229:4000/eventRoute/update-event/${event._id}`, event);
             });
 
             Promise.all(eventUpdates)

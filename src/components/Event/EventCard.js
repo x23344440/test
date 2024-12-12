@@ -28,7 +28,7 @@ function EventCard(props) {
 
   // Function to book event
   const Book = () => {
-    Axios.get("http://3.86.59.163:4000/eventRoute/check-user/" + user)
+    Axios.get("http://54.197.197.229:4000/eventRoute/check-user/" + user)
       .then((res) => {
         if (res.status === 200) {
           if (res.data != null) {
@@ -74,7 +74,7 @@ function EventCard(props) {
               Axios.all([
                 // Updating user information and adding event
                 Axios.put(
-                  "http://3.86.59.163:4000/eventRoute/update-user/" +
+                  "http://54.197.197.229:4000/eventRoute/update-user/" +
                     res.data._id,
                   userData
                 )
@@ -86,7 +86,7 @@ function EventCard(props) {
 
                 // Updating event information by adding user and reducing slots
                 Axios.put(
-                  "http://3.86.59.163:4000/eventRoute/update-event/" + _id,
+                  "http://54.197.197.229:4000/eventRoute/update-event/" + _id,
                   eventData
                 )
                   .then((eventUpdateResponse) => {
@@ -208,7 +208,7 @@ function EventCard(props) {
   // Function to delete event
   const deleteEvent = () => {
     Axios.all([
-      Axios.delete("http://3.86.59.163:4000/eventRoute/delete-event/" + _id)
+      Axios.delete("http://54.197.197.229:4000/eventRoute/delete-event/" + _id)
         .then((res) => {
           if (res.status === 200) {
             alert("Event deleted successfully");
@@ -217,7 +217,7 @@ function EventCard(props) {
         })
         .catch((err) => alert(err)),
 
-      Axios.get("http://3.86.59.163:4000/eventRoute/user-list").then(
+      Axios.get("http://54.197.197.229:4000/eventRoute/user-list").then(
         (userResponse) => {
           if (userResponse.status === 200) {
             // Finding users who have booked current event
@@ -229,7 +229,7 @@ function EventCard(props) {
               );
 
               Axios.put(
-                "http://3.86.59.163:4000/eventRoute/update-user/" +
+                "http://54.197.197.229:4000/eventRoute/update-user/" +
                   collectedUsers[i]._id,
                 userData
               )

@@ -42,7 +42,7 @@ class ContactPage extends Component {
         message: this.state.message,
       };
 
-      Axios.post("http://3.86.59.163:4000/eventRoute/post-feedback", newFeedback)
+      Axios.post("http://54.197.197.229:4000/eventRoute/post-feedback", newFeedback)
       .then((res) => {
         if(res.status === 200)
           alert("Thank you for your feedback!");
