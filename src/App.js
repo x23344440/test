@@ -17,7 +17,7 @@ import EventList from './components/Event/EventList';
 import UpdateEvent from './components/Event/UpdateEvent';
 import BookedEventsList from './components/Event/BookedEventsList';
 
-import './App.css';
+import './App.css'; 
 
 
 
